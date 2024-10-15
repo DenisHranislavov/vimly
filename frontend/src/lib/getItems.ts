@@ -3,7 +3,7 @@ async function customFetch(url: string) {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer 03dce55f-0cfb-46dd-b3b1-de2948105d0c`,
+      Authorization: `Bearer ${process.env.TOKEN}`,
     },
   });
 
@@ -41,10 +41,14 @@ export interface Article {
 }
 
 export const fetchItems = async () => {
-  const videosData = await customFetch("http://localhost:3005/videos");
-  const articlesData = await customFetch("http://localhost:3005/articles");
-  const categoryData = await customFetch("http://localhost:3005/category");
-  const toolsData = await customFetch("http://localhost:3005/tools");
+  const videosData = await customFetch(`${process.env.NEXT_PUBLIC_URL}videos`);
+  const articlesData = await customFetch(
+    `${process.env.NEXT_PUBLIC_URL}articles`
+  );
+  const categoryData = await customFetch(
+    `${process.env.NEXT_PUBLIC_URL}category`
+  );
+  const toolsData = await customFetch(`${process.env.NEXT_PUBLIC_URL}tools`);
 
   const items = {
     videos: {

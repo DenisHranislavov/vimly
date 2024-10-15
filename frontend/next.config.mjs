@@ -3,9 +3,8 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "http",
-        hostname: "localhost",
-        port: "3005",
+        protocol: "https",
+        hostname: "vimly.onrender.com",
         pathname: "/**",
       },
     ],
