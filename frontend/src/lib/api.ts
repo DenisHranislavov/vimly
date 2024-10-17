@@ -61,13 +61,13 @@ export interface CreateUser {
 
 //Tools
 
-interface Tool {
+export interface Tool {
   _id: string;
   title: string;
   link: string;
   description: string;
 }
-interface Tools {
+export interface Tools {
   tools: Tool[];
 }
 
