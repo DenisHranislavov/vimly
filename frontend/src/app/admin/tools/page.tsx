@@ -35,7 +35,7 @@ export default function ToolsPage() {
     const getTools = async () => {
       try {
         const data = await fetchTools();
-        setTools(data?.tools || []);
+        setTools(data.tools);
       } catch (error) {
         console.error("Error fetching tools:", error);
       } finally {
