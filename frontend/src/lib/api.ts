@@ -59,12 +59,16 @@ export interface CreateUser {
   password: string;
 }
 
-// Tools
-export interface Tools {
+//Tools
+
+interface Tool {
   _id: string;
   title: string;
   link: string;
   description: string;
+}
+interface Tools {
+  tools: Tool[];
 }
 
 export interface createTool {
