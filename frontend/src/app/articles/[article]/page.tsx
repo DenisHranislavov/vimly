@@ -8,7 +8,7 @@ import "@/styles/text-formatting.css";
 
 export default function Page() {
   const [article, setArticle] = useState<Article | null>(null);
-  const [id, setId] = useState<string | null>(null);
+  const [_id, setId] = useState<string | null>(null);
 
   useEffect(() => {
     const path = window.location.pathname;

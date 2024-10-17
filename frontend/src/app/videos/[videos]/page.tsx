@@ -7,12 +7,12 @@ import Link from "next/link";
 
 export default function Page() {
   const [video, setVideo] = useState<Video[]>([]);
-  const [categories, setCategories] = useState<Category[]>([]);
-  const [id, setId] = useState<string | null>(null);
+  const [_categories, setCategories] = useState<Category[]>([]);
+  const [_id, setId] = useState<string | null>(null);
 
   useEffect(() => {
-    let path = window.location.pathname;
-    let idFromPath = path.split("/").pop();
+    const path = window.location.pathname;
+    const idFromPath = path.split("/").pop();
 
     setId(idFromPath ?? null);
 
