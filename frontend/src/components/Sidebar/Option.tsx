@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 export default function Option({
   Icon,
   title,
-  selected,
   setSelected,
   open,
   route,

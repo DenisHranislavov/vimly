@@ -26,7 +26,7 @@ const VideosPage = () => {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {items.tools.data.map((tool: any) => (
-            <Link href={tool.link}>
+            <Link href={tool.link} key={tool.link}>
               <Card
                 key={tool.id}
                 className="shadow-lg hover:shadow-xl transition-shadow"

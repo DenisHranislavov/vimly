@@ -3,9 +3,9 @@ export const Option = ({
     title,
     selected,
     setSelected,
-    open
-}: {
+    open, 
+} : {
     Icon: IconType;
     title: string;
     selected: string;
-})
+}) 

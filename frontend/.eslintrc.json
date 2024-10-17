@@ -1,3 +1,22 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "extends": ["next/core-web-vitals", "next/typescript"],
+  "rules": {
+    // Disable the rule for using unescaped entities
+    "react/no-unescaped-entities": "off",
+
+    // Allow the use of <img> tags instead of <Image /> from next/image
+    "@next/next/no-img-element": "off",
+
+    // Turn off the rule that disallows the use of 'any' in TypeScript
+    "@typescript-eslint/no-explicit-any": "off",
+
+    // Allow unused variables with an underscore prefix (for example, _id)
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }
+    ],
+
+    // Prefer const over let when variables are not reassigned
+    "prefer-const": "warn"
+  }
 }

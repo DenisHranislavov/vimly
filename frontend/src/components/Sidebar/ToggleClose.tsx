@@ -1,4 +1,4 @@
-import React, { Dispatch } from "react";
+import React from "react";
 import { ArrowRightSquareIcon } from "lucide-react";
 import { motion } from "framer-motion";
 

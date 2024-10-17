@@ -19,7 +19,6 @@ import {
   Sheet,
   SheetClose,
   SheetContent,
-  SheetDescription,
   SheetFooter,
   SheetHeader,
   SheetTitle,
@@ -28,7 +27,6 @@ import {
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
-import Link from "next/link";
 import Swal from "sweetalert2";
 
 export default function CategoriesPage() {

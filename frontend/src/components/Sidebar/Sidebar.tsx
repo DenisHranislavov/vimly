@@ -10,7 +10,6 @@ import {
   Boxes,
   CommandIcon,
   LayoutDashboard,
-  UserCog2,
 } from "lucide-react";
 import { motion } from "framer-motion";
 

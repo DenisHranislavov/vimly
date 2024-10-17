@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { fetchVideoById, Video, editVideo } from "@/lib/api";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import Swal from "sweetalert2";
@@ -45,12 +44,6 @@ export default function EditVideoPage() {
 
   const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
-  };
-
-  const handleDescriptionChange = (
-    e: React.ChangeEvent<HTMLTextAreaElement>
-  ) => {
-    setDescription(e.target.value);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
