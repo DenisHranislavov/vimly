@@ -19,7 +19,7 @@ Vimly is a comprehensive full-stack web application built to provide a platform 
 - **Funny & Helpful Tools**: A collection of useful and entertaining tools.
 - **Authentication**: Admin login powered by **NextAuth** with token-based access.
 - **Mobile Responsive**: Optimized for different screen sizes with **Tailwind CSS and Shadcn/Ui**.
-- 
+
 ## 🛠️ Technologies
 
 - **Frontend**: Next.js, Tailwind CSS, Shadcn, Lucide-React
@@ -149,13 +149,13 @@ http://localhost:3000
 
 ## 🔑 Authentication & Token Protection
 
-Vimly uses **NextAuth** for admin login and authentication. The environment variable `NEXT_PUBLIC_VIMLY_ADMIN_EMAIL` is used to give access to the dashboard in addition to admins stored in the database.
+Vimly uses **NextAuth** for admin login and authentication. The environment variable `ADMIN_EMAIL` is used to give access to the dashboard in addition to admins stored in the database.
 
 Ensure your token configuration is correct to restrict access to the admin panel and perform secure actions on the API.
 
 ## ⚙️ Environment Configuration
 
-For local development, the project uses `.env` files for backend environment variables, including the MongoDB connection string, JWT secret, and NextAuth secret. Make sure to set these up before running the project:
+For local development, the project uses `.env` files for backend environment variables, including the MongoDB connection string, TOKEN secret, and NextAuth secret. Make sure to set these up before running the project:
 
 ```env
 YOUTUBE_API="YOUR API KEY"
