@@ -50,7 +50,9 @@ export default function Page() {
             variant="default"
             className="w-full flex justify-center md:justify-center md:w-1/5 lg:w-1/6 xl:w-1/8"
           >
-            {article?.category?.title}
+            {Array.isArray(article?.category) && article.category.length > 0
+              ? article.category[0]
+              : "No Category"}
           </Badge>
           <h1 className="text-3xl font-bold text-gray-900">{article.title}</h1>
           <div
