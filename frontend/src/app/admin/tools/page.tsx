@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { fetchTools, createTool, deleteTool, Tools } from "@/lib/api";
+import { fetchTools, createTool, deleteTool, Tool, Tools } from "@/lib/api";
 import { Button } from "@/components/ui/button";
 import {
   Table,
@@ -25,7 +25,7 @@ import { Card } from "@/components/ui/card";
 import Swal from "sweetalert2";
 
 export default function ToolsPage() {
-  const [tools, setTools] = useState<Tools[]>([]);
+  const [tools, setTools] = useState<Tool[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [newToolName, setNewToolName] = useState<string>("");
   const [newToolLink, setNewToolLink] = useState<string>("");
@@ -34,7 +34,7 @@ export default function ToolsPage() {
   useEffect(() => {
     const getTools = async () => {
       try {
-        const data = await fetchTools();
+        const data: Tools = await fetchTools();
         setTools(data.tools);
       } catch (error) {
         console.error("Error fetching tools:", error);
