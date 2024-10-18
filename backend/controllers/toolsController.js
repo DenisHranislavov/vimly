@@ -1,8 +1,8 @@
-const Tools = require("../models/Tool");
+const Tool = require("../models/Tool"); // Corrected to 'Tool'
 
 exports.getTools = async (req, res) => {
   try {
-    const tools = await Tools.find();
+    const tools = await Tool.find(); // Use 'Tool' here as well
     res.status(200).json({ tools });
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -11,7 +11,7 @@ exports.getTools = async (req, res) => {
 
 exports.deleteTool = async (req, res) => {
   try {
-    const tool = await Tools.findByIdAndDelete(req.params.id);
+    const tool = await Tool.findByIdAndDelete(req.params.id); // Use 'Tool'
     if (!tool) {
       return res.status(404).json({ message: "Tool not found" });
     }
@@ -23,11 +23,18 @@ exports.deleteTool = async (req, res) => {
 
 exports.createTool = async (req, res) => {
   try {
-    const tool = new Tools(req.body);
-    await tool.save();
+    console.log(req.body); // Debugging the request body
 
-    res.status(201).json(tool);
+    const newTool = new Tool({
+      title: req.body.title,
+      link: req.body.link,
+      description: req.body.description,
+    });
+
+    const savedTool = await newTool.save();
+
+    return res.status(201).json(savedTool);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    return res.status(400).json({ message: error.message });
   }
 };

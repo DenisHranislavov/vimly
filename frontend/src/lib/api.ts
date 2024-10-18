@@ -435,7 +435,7 @@ export const fetchTools = async (): Promise<Tools> => {
   return response.json();
 };
 
-export const createTool = async (tool: createTool): Promise<Tools> => {
+export const createTool = async (tool: Partial<Tool>): Promise<Tool> => {
   const response = await fetch(`${process.env.URL}tools`, {
     method: "POST",
     headers: {
@@ -449,7 +449,9 @@ export const createTool = async (tool: createTool): Promise<Tools> => {
     throw new Error("Failed to create tool");
   }
 
-  return response.json();
+  // Return the newly created tool object
+  const createdTool: Tool = await response.json();
+  return createdTool;
 };
 
 export const deleteTool = async (id: string) => {

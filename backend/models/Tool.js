@@ -3,17 +3,13 @@ const mongoose = require("mongoose");
 const toolSchema = new mongoose.Schema({
   title: {
     type: String,
-    required: true,
-  },
-  link: {
-    type: String,
-    required: true,
   },
   description: {
     type: String,
-    required: true,
+  },
+  link: {
+    type: String,
   },
 });
 
-const Tool = mongoose.model("Tool", toolSchema);
-module.exports = Tool;
+module.exports = mongoose.model("Tool", toolSchema);

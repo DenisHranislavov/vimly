@@ -80,7 +80,10 @@ export default function ToolsPage() {
         description: newToolDescription,
       };
 
-      const createdTool = await createTool(newTool);
+      // Assuming createTool returns a single Tool object
+      const createdTool: Tool = await createTool(newTool);
+
+      // Update state with the newly created tool
       setTools((prevTools) => [...prevTools, createdTool]);
       Swal.fire({ title: "Tool created", icon: "success" });
 
