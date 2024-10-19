@@ -1,5 +1,7 @@
 # Vimly
 
+![vimly-logo](frontend/src/public/vimly-github.png)
+
 [![License](https://img.shields.io/badge/License-MIT-blue)](./LICENSE)
 [![Next.js](https://img.shields.io/badge/Frontend-Next.js-blue)](https://nextjs.org/)
 [![Express.js](https://img.shields.io/badge/Backend-Express.js-brightgreen)](https://expressjs.com/)
