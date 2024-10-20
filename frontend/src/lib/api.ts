@@ -94,7 +94,7 @@ export const createVideo = async (video: createVideo): Promise<Video> => {
     ...video,
     thumbnail,
   };
-  const response = await fetch(`${process.env.URL}videos`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_URL}videos`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -112,7 +112,7 @@ export const createVideo = async (video: createVideo): Promise<Video> => {
 // Fetching Video by ID
 
 export const fetchVideoById = async (id: string): Promise<Video> => {
-  const response = await fetch(`${process.env.URL}videos/${id}`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_URL}videos/${id}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -155,7 +155,7 @@ const fetchYouTubeThumbnail = async (videoId: string): Promise<string> => {
 // Delete a Video
 
 export const deleteVideo = async (id: string): Promise<void> => {
-  const response = await fetch(`${process.env.URL}videos/${id}`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_URL}videos/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -173,7 +173,7 @@ export const deleteVideo = async (id: string): Promise<void> => {
 // Edit a Video
 
 export const editVideo = async (id: string, video: Video): Promise<Video> => {
-  const response = await fetch(`${process.env.URL}videos/${id}`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_URL}videos/${id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -192,7 +192,7 @@ export const editVideo = async (id: string, video: Video): Promise<Video> => {
 // Fetching Articles
 
 export const fetchArticles = async (): Promise<{ articles: Article[] }> => {
-  const response = await fetch(`${process.env.URL}articles`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_URL}articles`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -210,7 +210,7 @@ export const fetchArticles = async (): Promise<{ articles: Article[] }> => {
 // Fetching Article by ID
 
 export const fetchArticleById = async (id: string): Promise<Article> => {
-  const response = await fetch(`${process.env.URL}articles/${id}`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_URL}articles/${id}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -219,6 +219,8 @@ export const fetchArticleById = async (id: string): Promise<Article> => {
   });
 
   if (!response.ok) {
+    const errorDetails = await response.text(); // capture more detailed error information
+    console.error(`Error fetching article: ${errorDetails}`);
     throw new Error("Failed to fetch article");
   }
 
@@ -228,7 +230,7 @@ export const fetchArticleById = async (id: string): Promise<Article> => {
 // Create an Article
 
 export const createArticle = async (articleData: FormData) => {
-  const response = await fetch(`${process.env.URL}articles`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_URL}articles`, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${process.env.TOKEN}`,
@@ -245,7 +247,7 @@ export const createArticle = async (articleData: FormData) => {
 
 // Delete an Article
 export const deleteArticle = async (id: string): Promise<void> => {
-  const response = await fetch(`${process.env.URL}articles/${id}`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_URL}articles/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -266,7 +268,7 @@ export const editArticle = async (
   id: string,
   article: Article
 ): Promise<Article> => {
-  const response = await fetch(`${process.env.URL}articles/${id}`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_URL}articles/${id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -284,7 +286,7 @@ export const editArticle = async (
 
 // Fetching Categories
 export const fetchCategories = async (): Promise<CategoryData> => {
-  const response = await fetch(`${process.env.URL}category`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_URL}category`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -302,7 +304,7 @@ export const fetchCategories = async (): Promise<CategoryData> => {
 // Create a Category
 
 export const createCategory = async (category: { title: string }) => {
-  const response = await fetch(`${process.env.URL}category`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_URL}category`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -318,7 +320,7 @@ export const createCategory = async (category: { title: string }) => {
 
 // Delete a Category
 export const deleteCategory = async (id: string): Promise<void> => {
-  const response = await fetch(`${process.env.URL}category/${id}`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_URL}category/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -334,7 +336,7 @@ export const deleteCategory = async (id: string): Promise<void> => {
 
 // Create a User
 export const createUser = async (userData: CreateUser) => {
-  const response = await fetch(`${process.env.URL}users`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_URL}users`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -353,7 +355,7 @@ export const createUser = async (userData: CreateUser) => {
 // Admin methods
 
 export const fetchAdmins = async (): Promise<{ admins: Admin[] }> => {
-  const response = await fetch(`${process.env.URL}admin`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_URL}admin`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -371,7 +373,7 @@ export const fetchAdmins = async (): Promise<{ admins: Admin[] }> => {
 // Admin methods
 
 export const fetchAdmin = async (): Promise<Admin> => {
-  const response = await fetch(`${process.env.URL}admin`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_URL}admin`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -387,7 +389,7 @@ export const fetchAdmin = async (): Promise<Admin> => {
 };
 
 export const createAdmin = async (email: string) => {
-  const response = await fetch(`${process.env.URL}admins`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_URL}admins`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -404,13 +406,16 @@ export const createAdmin = async (email: string) => {
 };
 
 export const deleteAdmin = async (email: string) => {
-  const response = await fetch(`${process.env.URL}admins/${email}`, {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${process.env.TOKEN}`,
-    },
-  });
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_URL}admins/${email}`,
+    {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.TOKEN}`,
+      },
+    }
+  );
 
   if (!response.ok) {
     throw new Error("Failed to delete admin");
@@ -420,7 +425,7 @@ export const deleteAdmin = async (email: string) => {
 //Tools Methods
 
 export const fetchTools = async (): Promise<Tools> => {
-  const response = await fetch(`${process.env.URL}tools`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_URL}tools`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -436,7 +441,7 @@ export const fetchTools = async (): Promise<Tools> => {
 };
 
 export const createTool = async (tool: Partial<Tool>): Promise<Tool> => {
-  const response = await fetch(`${process.env.URL}tools`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_URL}tools`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -455,7 +460,7 @@ export const createTool = async (tool: Partial<Tool>): Promise<Tool> => {
 };
 
 export const deleteTool = async (id: string) => {
-  const response = await fetch(`${process.env.URL}tools/${id}`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_URL}tools/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -467,3 +472,29 @@ export const deleteTool = async (id: string) => {
     throw new Error("Failed to delete admin");
   }
 };
+
+// Custom fetch function
+
+export async function customFetch(url: string) {
+  const token = process.env.TOKEN;
+  try {
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token || undefined}`,
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(
+        `Failed to fetch data from ${url}: ${response.statusText}`
+      );
+    }
+
+    return response.json();
+  } catch (error) {
+    console.error(`Error fetching data from ${url}:`, error);
+    throw error;
+  }
+}

@@ -82,7 +82,7 @@ const ArticlesPage = () => {
                   <CardHeader className="p-0">
                     <div className="relative w-full h-56">
                       <img
-                        src={`http://localhost:3005${article.thumbnailUrl}`}
+                        src={`http://62.84.184.12:6063${article.thumbnailUrl}`}
                         alt={article.title}
                         className="object-cover w-full h-full"
                       />

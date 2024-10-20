@@ -3,11 +3,9 @@
 import { useSession } from "next-auth/react";
 import Sidebar from "@/components/Sidebar/Sidebar";
 import React from "react";
-import { fetchItems } from "@/lib/getItems";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const { data: session } = useSession();
-  fetchItems();
   if (session?.user?.isAdmin) {
     return (
       <div className="flex">

@@ -44,7 +44,7 @@ export default function DashboardPage() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <p className="text-4xl font-bold">{items.videos.length || ""}</p>
+            <p className="text-4xl font-bold">{items.videos.length || "0"}</p>
             <p className="text-sm text-gray-500 mt-2">
               Published videos on the platform
             </p>
@@ -56,7 +56,7 @@ export default function DashboardPage() {
             <CardDescription>Your article performance overview</CardDescription>
           </CardHeader>
           <CardContent>
-            <p className="text-4xl font-bold">{items.articles.length}</p>
+            <p className="text-4xl font-bold">{items.articles.length || "0"}</p>
             <p className="text-sm text-gray-500 mt-2">
               Published articles on the platform
             </p>
@@ -70,7 +70,7 @@ export default function DashboardPage() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <p className="text-4xl font-bold">{items.tools.length}</p>
+            <p className="text-4xl font-bold">{items.tools.length || "0"}</p>
             <p className="text-sm text-gray-500 mt-2">
               Times tools have been utilized
             </p>

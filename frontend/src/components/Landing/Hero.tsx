@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
+import Refresh from "@/components/Refresh";
 
 export default function Hero() {
   return (
@@ -22,6 +23,7 @@ export default function Hero() {
         entrepreneur, our platform offers in-depth tutorials, thought-provoking
         articles, and a community-driven space where knowledge meets creativity.
       </p>
+      <Refresh />
       <Link href="#features-tools">
         <Button variant="default" className="text-lg md:text-xl">
           Discover What Vimly Can Do

@@ -21,20 +21,16 @@ const handler = NextAuth({
         if (envAdminEmail) {
           adminEmails.push(envAdminEmail);
         }
-        if (user.email && adminEmails.includes(user.email)) {
-          token.isAdmin = true;
-        } else {
-          token.isAdmin = false;
-        }
+        token.isAdmin = user.email && adminEmails.includes(user.email);
       }
       return token;
     },
-
     async session({ session, token }) {
       session.user.isAdmin = token.isAdmin as boolean;
       return session;
     },
   },
+  debug: true,
 });
 
 export { handler as GET, handler as POST };

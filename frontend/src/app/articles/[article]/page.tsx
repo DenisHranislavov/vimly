@@ -18,7 +18,6 @@ export default function Page() {
     const fetchArticle = async () => {
       if (!idFromPath) return;
       const articleData = await fetchArticleById(idFromPath);
-      console.log(articleData);
       setArticle(articleData);
     };
 
@@ -26,7 +25,7 @@ export default function Page() {
   }, []);
 
   if (!article) {
-    return <div>Loading...</div>;
+    return <div>No article was found!</div>;
   }
 
   return (
@@ -40,7 +39,7 @@ export default function Page() {
         <div className="flex flex-col gap-10">
           {article.thumbnailUrl && (
             <img
-              src={`http://localhost:3005${article.thumbnailUrl}`}
+              src={`http://62.84.184.12:6063${article.thumbnailUrl}`}
               alt={article.title}
               className="w-full h-64 object-cover rounded-lg"
             />

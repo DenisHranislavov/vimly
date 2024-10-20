@@ -86,7 +86,7 @@ export default function CreateArticleForm() {
           <ArrowLeft className="w-6 h-6 text-gray-700 hover:text-gray-900 transition duration-300" />{" "}
         </div>
       </Link>
-      <div className="flex flex-col justify-center items-center h-screen">
+      <div className="flex flex-col justify-center items-center h-screen ">
         <h1 className="text-7xl text-center p-10">Create New Article</h1>
         <form
           onSubmit={handleSubmit}
